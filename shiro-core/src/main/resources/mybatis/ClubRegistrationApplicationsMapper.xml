@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.zyd.shiro.persistence.mapper.ClubRegistrationApplicationsMapper">
+
+    <resultMap id="rm" type="com.zyd.shiro.persistence.beans.ClubRegistrationApplications">
+        <result property="id" jdbcType="BIGINT" column="id"/>
+        <result property="club_name" jdbcType="VARCHAR" column="club_name"/>
+        <result property="club_description" jdbcType="VARCHAR" column="club_description"/>
+        <result property="club_goals" jdbcType="VARCHAR" column="club_goals"/>
+        <result property="application_id" jdbcType="INTEGER" column="application_id"/>
+        <result property="application_date" jdbcType="DATE" column="application_date"/>
+        <result property="status" jdbcType="INTEGER" column="status"/>
+        <result property="reviewer_id" jdbcType="INTEGER" column="reviewer_id"/>
+        <result property="review_date" jdbcType="DATE" column="review_date"/>
+        <result property="review_comments" jdbcType="VARCHAR" column="review_comments"/>
+        <result property="application_name" jdbcType="VARCHAR" column="application_name"/>
+        <result property="reviewer_name" jdbcType="VARCHAR" column="reviewer_name"/>
+        <result property="createTime" jdbcType="TIMESTAMP" column="create_time"/>
+        <result property="updateTime" jdbcType="TIMESTAMP" column="update_time"/>
+    </resultMap>
+
+
+
+    <select id="findPageBreakByCondition" parameterType="com.zyd.shiro.business.vo.ClubRegistrationConditionVO" resultMap="rm">
+        SELECT
+            c.*
+        FROM
+            club_registration_applications c
+        WHERE
+            1 = 1
+        ORDER by
+            c.id ASC
+    </select>
+
+    <select id="findPageBreakByCondition2" parameterType="com.zyd.shiro.business.vo.ClubRegistrationConditionVO" resultMap="rm">
+        SELECT
+            c.*
+        FROM
+            club_registration_applications c
+        WHERE
+            1 = 1
+        AND
+            status = 1
+        ORDER by
+            c.id ASC
+    </select>
+    <select id="findByApplicantId" parameterType="com.zyd.shiro.business.vo.ClubRegistrationConditionVO" resultMap="rm">
+        SELECT
+            c.*
+        FROM
+            club_registration_applications c
+        WHERE
+            application_id =${application_id}
+        AND
+            status = 1
+        ORDER by
+            c.id ASC
+    </select>
+    <select id="findPageBreakByCondition3" parameterType="com.zyd.shiro.business.vo.ClubRegistrationConditionVO" resultMap="rm">
+        SELECT
+            c.*
+        FROM
+            club_registration_applications c
+        WHERE
+            application_id =${application_id}
+        ORDER by
+            c.id ASC
+    </select>
+</mapper>
+

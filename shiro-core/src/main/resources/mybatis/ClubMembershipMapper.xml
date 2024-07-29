@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.zyd.shiro.persistence.mapper.ClubMembershipMapper">
+
+    <resultMap id="rm" type="com.zyd.shiro.persistence.beans.ClubMembership">
+        <result property="id" jdbcType="BIGINT" column="id"/>
+        <result property="club_id" jdbcType="INTEGER" column="club_id"/>
+        <result property="club_name" jdbcType="VARCHAR" column="club_name"/>
+        <result property="applicant_id" jdbcType="INTEGER" column="applicant_id"/>
+        <result property="application_date" jdbcType="DATE" column="application_date"/>
+        <result property="status" jdbcType="INTEGER" column="status"/>
+        <result property="reviewer_id" jdbcType="INTEGER" column="reviewer_id"/>
+        <result property="review_date" jdbcType="DATE" column="review_date"/>
+        <result property="review_comments" jdbcType="VARCHAR" column="review_comments"/>
+        <result property="applicant_name" jdbcType="VARCHAR" column="applicant_name"/>
+        <result property="reviewer_name" jdbcType="VARCHAR" column="reviewer_name"/>
+        <result property="createTime" jdbcType="TIMESTAMP" column="create_time"/>
+        <result property="updateTime" jdbcType="TIMESTAMP" column="update_time"/>
+    </resultMap>
+
+
+
+    <select id="findPageBreakByCondition" parameterType="com.zyd.shiro.business.vo.ClubMembershipVO" resultMap="rm">
+        SELECT
+            c.*
+        FROM
+            club_membership c
+        WHERE
+            1 = 1
+        ORDER by
+            c.id ASC
+    </select>
+    <select id="findByApplicantIdAndClubId" parameterType="com.zyd.shiro.business.vo.ClubMembershipVO" resultMap="rm">
+        SELECT
+            c.*
+        FROM
+            club_membership c
+        WHERE
+            applicant_id =${applicant_id}
+        AND
+            club_id =${club_id}
+        ORDER by
+            c.id ASC
+</select>
+    <select id="findPageBreakByCondition2" parameterType="com.zyd.shiro.business.vo.ClubMembershipVO" resultMap="rm">
+        SELECT
+            c.*
+        FROM
+            club_membership c
+        WHERE
+            applicant_id =${application_id}
+        ORDER by
+            c.id ASC
+    </select>
+    <select id="findPageBreakByCondition3" parameterType="com.zyd.shiro.business.vo.ClubMembershipVO" resultMap="rm">
+        SELECT
+            c.*
+        FROM
+             club_membership c
+        WHERE
+              club_id
+        IN (SELECT id FROM club_registration_applications WHERE application_id = #{application_id})
+        ORDER by
+            c.id ASC
+    </select>
+</mapper>
+

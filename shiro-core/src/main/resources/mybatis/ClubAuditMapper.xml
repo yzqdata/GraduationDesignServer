@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.zyd.shiro.persistence.mapper.ClubAuditMapper">
+
+    <resultMap id="rm" type="com.zyd.shiro.persistence.beans.ClubAudit">
+        <result property="id" jdbcType="BIGINT" column="id"/>
+        <result property="club_id" jdbcType="INTEGER" column="club_id"/>
+        <result property="application_date" jdbcType="DATE" column="application_date"/>
+        <result property="auditor_id" jdbcType="INTEGER" column="auditor_id"/>
+        <result property="audit_item" jdbcType="VARCHAR" column="audit_item"/>
+        <result property="status" jdbcType="INTEGER" column="status"/>
+        <result property="comments" jdbcType="VARCHAR" column="comments"/>
+        <result property="club_name" jdbcType="VARCHAR" column="club_name"/>
+        <result property="auditor_name" jdbcType="VARCHAR" column="auditor_name"/>
+<!--        <result property="createTime" jdbcType="TIMESTAMP" column="create_time"/>-->
+<!--        <result property="updateTime" jdbcType="TIMESTAMP" column="update_time"/>-->
+    </resultMap>
+
+
+
+    <select id="findPageBreakByCondition" parameterType="com.zyd.shiro.business.vo.ClubAuditVO" resultMap="rm">
+        SELECT
+            c.*
+        FROM
+            club_audit c
+        WHERE
+            1 = 1
+        ORDER by
+            c.id ASC
+    </select>
+    <select id="findPageBreakByCondition2" resultType="com.zyd.shiro.persistence.beans.ClubAudit">
+        SELECT
+            c.*
+        FROM
+            club_audit c
+        WHERE
+            applicant_id =${application_id}
+        ORDER by
+            c.id ASC
+    </select>
+</mapper>
+

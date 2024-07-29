@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.zyd.shiro.persistence.mapper.ClubCancellationMapper">
+
+    <resultMap id="rm" type="com.zyd.shiro.persistence.beans.ClubCancellation">
+        <result property="id" jdbcType="BIGINT" column="id"/>
+        <result property="club_id" jdbcType="INTEGER" column="club_id"/>
+        <result property="applicant_id" jdbcType="INTEGER" column="applicant_id"/>
+        <result property="application_date" jdbcType="DATE" column="application_date"/>
+        <result property="reason_for_cancellation" jdbcType="VARCHAR" column="reason_for_cancellation"/>
+        <result property="status" jdbcType="INTEGER" column="status"/>
+        <result property="reviewer_id" jdbcType="INTEGER" column="reviewer_id"/>
+        <result property="review_date" jdbcType="DATE" column="review_date"/>
+        <result property="review_comments" jdbcType="VARCHAR" column="review_comments"/>
+        <result property="applicant_name" jdbcType="VARCHAR" column="applicant_name"/>
+        <result property="reviewer_name" jdbcType="VARCHAR" column="reviewer_name"/>
+        <result property="createTime" jdbcType="TIMESTAMP" column="create_time"/>
+        <result property="updateTime" jdbcType="TIMESTAMP" column="update_time"/>
+    </resultMap>
+
+
+
+    <select id="findPageBreakByCondition" parameterType="com.zyd.shiro.business.vo.ClubCancellationVO" resultMap="rm">
+        SELECT
+            c.*
+        FROM
+            club_cancellation c
+        WHERE
+            1 = 1
+        ORDER by
+            c.id ASC
+    </select>
+    <select id="findPageBreakByCondition2"  parameterType="com.zyd.shiro.business.vo.ClubCancellationVO" resultMap="rm">
+        SELECT
+            c.*
+        FROM
+            club_cancellation c
+        WHERE
+            applicant_id =${application_id}
+        ORDER by
+            c.id ASC
+    </select>
+</mapper>
+

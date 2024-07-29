@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.zyd.shiro.persistence.mapper.ClubTrainingRoleMapper">
+
+    <resultMap id="rm" type="com.zyd.shiro.persistence.beans.ClubTrainingRole">
+        <result property="id" jdbcType="BIGINT" column="id"/>
+        <result property="clubTrainingId" jdbcType="BIGINT" column="club_training_id"/>
+        <result property="roleId" jdbcType="BIGINT" column="role_id"/>
+        <result property="createTime" jdbcType="TIMESTAMP" column="create_time"/>
+        <result property="updateTime" jdbcType="TIMESTAMP" column="update_time"/>
+    </resultMap>
+
+
+
+    <select id="findPageBreakByCondition" parameterType="com.zyd.shiro.business.vo.ClubTrainingRoleVO" resultMap="rm">
+        SELECT
+            c.*
+        FROM
+            club_training_role c
+        WHERE
+            1 = 1
+        ORDER by
+            c.id ASC
+    </select>
+    <select id="findByRoleClubTrainingId" parameterType="com.zyd.shiro.business.vo.ClubTrainingRoleVO" resultMap="rm">
+        SELECT
+            c.*
+        FROM
+            club_training_role c
+        WHERE
+            club_training_id = #{club_training_id}
+        AND
+            role_id = #{role_id}
+        ORDER by
+            c.id ASC
+    </select>
+
+
+</mapper>
+
