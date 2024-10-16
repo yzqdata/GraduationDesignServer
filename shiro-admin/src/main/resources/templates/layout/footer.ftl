@@ -8,13 +8,13 @@
 </div>
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
 <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="https://cdn.bootcss.com/jquery-confirm/2.5.1/jquery-confirm.min.js" type="text/javascript"></script>
+<#--<script src="https://cdn.bootcss.com/jquery-confirm/2.5.1/jquery-confirm.min.js" type="text/javascript"></script>-->
 <script src="https://cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js" type="text/javascript"></script>
 <script src="https://cdn.bootcss.com/mustache.js/2.3.0/mustache.min.js" type="text/javascript"></script>
 <script src="https://cdn.bootcss.com/js-xss/0.3.3/xss.min.js" type="text/javascript"></script>
 <script src="https://cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
-<script src="https://cdn.bootcss.com/toastr.js/2.0.3/js/toastr.min.js"></script>
-<script src="https://cdn.bootcss.com/iCheck/1.0.2/icheck.min.js"></script>
+<#--<script src="https://cdn.bootcss.com/toastr.js/2.0.3/js/toastr.min.js"></script>-->
+<#--<script src="https://cdn.bootcss.com/iCheck/1.0.2/icheck.min.js"></script>-->
 <script src="https://cdn.bootcss.com/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap-daterangepicker/2.1.24/moment.min.js"></script>
@@ -29,5 +29,10 @@
 <script src="/assets/js/zyd.tool.js"></script>
 <script src="/assets/js/zhyd.core.js"></script>
 <script src="/assets/js/zyd.table.js"></script>
+<script src="/assets/js/jquery-confirm.js"></script>
+<script src="/assets/js/toastr.js"></script>
+<script src="/assets/js/icheck.min.js"></script>
+
+
 </body>
 </html>
